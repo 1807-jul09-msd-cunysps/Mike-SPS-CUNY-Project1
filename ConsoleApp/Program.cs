@@ -1,10 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using Models;
+using BusinessLogic;
 using DataAccess;
-using NLog;
+using Models.ContactMe;
+using Models.Person;
 
-namespace proj0
+namespace ConsoleApp
 {
     class Program
     {

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
-using Models;
+using Models.Person;
 using BusinessLogic;
 using DataAccess;
 using System.Web.Http.Cors;
@@ -20,13 +20,13 @@ namespace WebAPI.Controllers
         [HttpGet]
         public JsonResult<IEnumerable<PersonModel>> Get()
         {
-            return Json<IEnumerable<PersonModel>>(MessageSqlDbAccess.GetAll());
+            return Json<IEnumerable<PersonModel>>(PersonSqlDbAccess.GetAll());
         }
 
         [HttpGet]
         public JsonResult<PersonModel> Get(int Id)
         {
-            return Json<PersonModel>(MessageSqlDbAccess.GetPersonById(Id));
+            return Json<PersonModel>(PersonSqlDbAccess.GetPersonById(Id));
         }
 
         [HttpPost]
@@ -36,7 +36,7 @@ namespace WebAPI.Controllers
             {
                 try
                 {
-                    MessageSqlDbAccess.Add(p);
+                    PersonSqlDbAccess.Add(p);
                     logger.Info($"PersonController.Post successfully added {p.Print()}");
                     return Ok();
                 }
@@ -60,7 +60,7 @@ namespace WebAPI.Controllers
             {
                 try
                 {
-                    MessageSqlDbAccess.Update(p);
+                    PersonSqlDbAccess.Update(p);
                     logger.Info($"PersonController.Put successfully edited {p.Print()}");
                     return Ok();
                 }
@@ -82,7 +82,7 @@ namespace WebAPI.Controllers
         {
             try
             {
-                MessageSqlDbAccess.Delete(Id);
+                PersonSqlDbAccess.Delete(Id);
                 logger.Info($"PersonController.Delete successfully deleted pid {Id}");
                 return Ok();
             }

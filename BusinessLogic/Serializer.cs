@@ -1,8 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using Models;
+using Models.Person;
 using Newtonsoft.Json;
-using NLog;
 
 namespace BusinessLogic
 {
