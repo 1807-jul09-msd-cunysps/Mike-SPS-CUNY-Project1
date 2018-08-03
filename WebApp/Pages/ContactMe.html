@@ -1,0 +1,82 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Contact Me</title>
+    <!-- Bootstrap -->
+    <link type="text/css" rel="stylesheet" 
+          href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" 
+          crossorigin="anonymous">
+    <!-- Custom CSS -->
+    <link type="text/css" rel="stylesheet" href="../Styles/CustomCSS/ContactMe.css"/>
+    <!-- JQuery -->
+    <script type="text/javascript" src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.js"></script>
+    <!-- Custom JS -->
+    <script type="text/javascript" src="../Scripts/CustomJS/ContactMe.js"></script>
+</head>
+<body>
+    <div id="myContent" class="container-fluid" style="width:70%;">
+        <!-- Header -->
+        <header id="header" class="flex-sm-row" style="">
+            <h1 id="banner" class="jumbotron jumbotron-fluid flex-sm-row text-center" style="margin-bottom:0; padding-bottom:4%; border-bottom: 3px solid black">Michael Corso</h1>
+            <nav class="navbar sticky-top navbar-dark bg-dark jumbotron flex-sm-row" style="padding-top:3%; padding-bottom:3%;">
+                <div id="navButtons" role="group" class="btn-group-sm ">
+                    <a class="btn btn-primary btn-dark" href="Home.html">Home</a>
+                    <a class="btn btn-dark btn-primary" href="About.html">About Me</a>
+                    <a class="btn btn-dark btn-primary" href="ContactMe.html">Contact Me</a>
+                    <a class="btn btn-dark btn-primary" href="Register.html" style="float:right;">Register</a>
+                </div>
+            </nav>
+        </header>
+        <!-- Content -->
+        <!-- Form -->
+        <form id="inputForm">
+            <fieldset class="form-group text-center custom-new-input-section">
+                <h4>Send a Message</h4>
+                <hr />
+                <!-- Full name-->
+                <div class="row custom-new-row-group">
+                    <div class="placeholder col-sm-2"></div>
+                    <label for="inputFullName" class="col-form-label col-sm-2 text-right">Full Name</label>
+                    <div class="col-sm-4">
+                        <input type="text" class="form-control text-left" id="inputFullName" placeholder="Full Name">
+                    </div>
+                </div>
+                <!-- Email-->
+                <div class="row custom-new-row-group">
+                    <div class="placeholder col-sm-2"></div>
+                    <label for="inputEmail" class="col-form-label col-sm-2 text-right">Email</label>
+                    <div class="col-sm-4">
+                        <input type="text" class="form-control text-left" id="inputEmail" placeholder="Email Address">
+                    </div>
+                </div>
+                <!-- Message -->
+                <div class="row custom-new-row-group">
+                    <div class="placeholder col-sm-2"></div>
+                    <label for="inputMessage" class="col-form-label col-sm-2 text-right">Message</label>
+                    <div class="col-sm-4">
+                        <textarea rows="4" class="form-control text-left" id="inputMessage" placeholder="Enter you message here..."></textarea>
+                    </div>
+                </div>
+            </fieldset>
+
+            <!-- Submit Button -->
+            <div class="form-group row text-center custom-new-input-section">
+                <hr />
+                <div class="placeholder col-sm-5"></div>
+                <div class="col-sm-2">
+                    <button type="submit" class="btn btn-primary">Send Message</button>
+                </div>
+                <div class="placeholder col-sm-5"></div>
+            </div>
+        </form>
+        <!-- Footer -->
+        <footer id="footer" class="flex-sm-row text-center">
+            <hr />
+            <h5>&copy; Michael Corso - 2018</h5>
+            <hr />
+        </footer>
+    </div>
+</body>
+</html>

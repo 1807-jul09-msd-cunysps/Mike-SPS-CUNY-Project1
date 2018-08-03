@@ -99,16 +99,16 @@
     <Content Include="Media\Images\Bootstrap-FH\bootstrap-formhelpers-googlefonts.png" />
     <Content Include="Media\Images\IntlPhone\flags%402x.png" />
     <Content Include="Media\Images\IntlPhone\flags.png" />
-    <Content Include="Pages\Contact.html" />
-    <Content Include="Pages\Contact_old.html" />
-    <Content Include="Pages\Index.html" />
-    <Content Include="Pages\JQuery.html" />
+    <Content Include="Pages\ContactMe.html" />
+    <Content Include="Pages\Register.html" />
+    <Content Include="Pages\Home.html" />
     <Content Include="Scripts\bootstrap-formhelpers.js" />
-    <Content Include="Scripts\CustomJS\Contact.js" />
-    <Content Include="Scripts\CustomJS\JQuery.js" />
+    <Content Include="Scripts\CustomJS\ContactMe.js" />
+    <Content Include="Scripts\CustomJS\Register.js" />
     <Content Include="Scripts\intlTelInput.js" />
     <Content Include="Styles\bootstrap-formhelpers.css" />
-    <Content Include="Styles\CustomCSS\Contact.css" />
+    <Content Include="Styles\CustomCSS\ContactMe.css" />
+    <Content Include="Styles\CustomCSS\Register.css" />
     <Content Include="Styles\intlTelInput.css" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -147,6 +147,7 @@
       <LastGenOutput>Application.Designer.vb</LastGenOutput>
     </None>
     <None Include="My Project\PublishProfiles\MC-Proj-0 - Web Deploy.pubxml" />
+    <None Include="My Project\PublishProfiles\Rev-MC-Project1 - Web Deploy.pubxml" />
     <None Include="My Project\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <CustomToolNamespace>My</CustomToolNamespace>

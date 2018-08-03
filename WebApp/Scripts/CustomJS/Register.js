@@ -259,7 +259,7 @@ function formSubmitted(e) {
 }
 
 function sendPost(newPerson) {
-    var url = "http://mc-proj-0.azurewebsites.net/api/person";
+    var url = "http://rev-mc-project1.azurewebsites.net/api/person";
     var person = newPerson;
     $.ajax({
         type: "POST",
