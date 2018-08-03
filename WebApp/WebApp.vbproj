@@ -100,6 +100,7 @@
     <Content Include="Media\Images\IntlPhone\flags%402x.png" />
     <Content Include="Media\Images\IntlPhone\flags.png" />
     <Content Include="Pages\ContactMe.html" />
+    <Content Include="Pages\AboutMe.html" />
     <Content Include="Pages\Register.html" />
     <Content Include="Pages\Home.html" />
     <Content Include="Scripts\bootstrap-formhelpers.js" />

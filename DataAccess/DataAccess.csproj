@@ -63,8 +63,6 @@
   <ItemGroup>
     <Compile Include="CountrySqlDbAccess.cs" />
     <Compile Include="PersonSqlDbAccess.cs" />
-    <Compile Include="MemDbAccess.cs" />
-    <Compile Include="FileDbAccess.cs" />
     <Compile Include="MessageSqlDbAccess.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Settings.Designer.cs">

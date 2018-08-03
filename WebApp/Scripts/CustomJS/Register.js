@@ -266,13 +266,12 @@ function sendPost(newPerson) {
         url: url,
         data: person,
         dataType: "JSON",
-        success: function (response) {
-            if (response != null) {
-                para.text(JSON.stringify(response));
-            }
-            else {
-                alert("error");
-            }
+        success: function () {
+            window.location.replace('http://localhost:50703/Pages/Home.html');
+        },
+        error: function (xhr, status, error) {
+            if (xhr.status == 200)
+                window.location.replace('http://localhost:50703/Pages/Home.html');
         }
     })
 }

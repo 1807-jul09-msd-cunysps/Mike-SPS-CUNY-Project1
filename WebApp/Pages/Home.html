@@ -2,95 +2,119 @@
 <html>
 <head>
     <meta charset="utf-8" />
-    <title></title>
+    <title>Home</title>
     <!-- Bootstrap -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
-          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link type="text/css" rel="stylesheet"
+          href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+          crossorigin="anonymous">
     <!-- Custom CSS -->
-    <link href="../Styles/CustomCSS/Contact.css" rel="stylesheet" />
+    <link type="text/css" rel="stylesheet" href="../Styles/CustomCSS/Home.css" />
     <!-- JQuery -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.js"></script>
 </head>
 <body>
     <div id="myContent" class="container-fluid" style="width:70%;">
         <!-- Header -->
         <header id="header" class="flex-sm-row" style="">
-            <h1 id="banner" class="jumbotron jumbotron-fluid flex-sm-row text-center" style="margin-bottom:0; padding-bottom:4%; border-bottom: 3px solid black">Michael Corso</h1>
+            <h1 id="banner" class="jumbotron jumbotron-fluid flex-sm-row text-center" style="margin-bottom:0; padding-bottom:4%; border-bottom: 3px solid black"><strong>Michael Corso</strong></h1>
             <nav class="navbar sticky-top navbar-dark bg-dark jumbotron flex-sm-row" style="padding-top:3%; padding-bottom:3%;">
                 <div id="navButtons" role="group" class="btn-group-sm ">
                     <a class="btn btn-primary btn-dark" href="Home.html">Home</a>
-                    <a class="btn btn-dark btn-primary" href="About.html">About Me</a>
+                    <a class="btn btn-dark btn-primary" href="AboutMe.html">About Me</a>
                     <a class="btn btn-dark btn-primary" href="ContactMe.html">Contact Me</a>
                     <a class="btn btn-dark btn-primary" href="Register.html" style="float:right;">Register</a>
                 </div>
             </nav>
         </header>
-        <div id="resume" class="d-flex flex-row">
-            <div id="personalInfo" class="text-center col-sm-6" style="">
-                <div id="educationDiv" class="flex-xl-row" style="margin-bottom:5%">
-                    <h3 id="educationHeader" style="margin-bottom:2%">Education</h3>
+        <!-- Content -->
+        <div id="overview" class="row">
+            <div id="textOverview" class="col-sm-6">
+                <div id="educationDiv" class="" style="">
+                    <h3 id="educationHeader" class="text-center" style=""><strong>Education</strong></h3>
+                    <hr />
                     <table id="educationTable" class="table">
                         <tr>
-                            <th class="">School</th>
-                            <th class="">Degree</th>
-                            <th class="">Major</th>
+                            <th class="text-center">School</th>
+                            <th class="text-center">Degree</th>
+                            <th class="text-center">Major</th>
                         </tr>
                         <tr>
-                            <td class="">New York University</td>
-                            <td class="">M.S.</td>
-                            <td class="">Computer Science</td>
+                            <td class="text-center">New York University</td>
+                            <td class="text-center">M.S.</td>
+                            <td class="text-center">Computer Science</td>
                         </tr>
                         <tr>
-                            <td class="">Rochester Inst. of Technology</td>
-                            <td class="">B.S.</td>
-                            <td class="">Criminal Justice</td>
+                            <td class="text-center">Rochester Inst. of Technology</td>
+                            <td class="text-center">B.S.</td>
+                            <td class="text-center">Criminal Justice</td>
                         </tr>
                     </table>
                 </div>
-                <div id="workDiv" class="flex-xl-row" style="margin-bottom:5%">
-                    <h3 id="workHeader" style="margin-bottom:2%">Work History</h3>
+                <hr />
+                <div id="workDiv" class="" style="">
+                    <h3 id="workHeader" class="text-center" style=""><strong>Work History</strong></h3>
+                    <hr />
                     <table id="workTable" class="table">
                         <tr>
-                            <th class="">Company</th>
-                            <th class="">Position</th>
-                            <th class="">Start</th>
-                            <th class="">End</th>
+                            <th class="text-center">Company</th>
+                            <th class="text-center">Position</th>
+                            <th class="text-center">Start</th>
+                            <th class="text-center">End</th>
                         </tr>
                         <tr>
-                            <td class="">Revature</td>
-                            <td class="">Software Developer</td>
-                            <td class="">July 2018</td>
-                            <td class="">Present</td>
+                            <td class="text-center">Revature</td>
+                            <td class="text-center">Software Developer</td>
+                            <td class="text-center">July 2018</td>
+                            <td class="text-center">Present</td>
                         </tr>
                         <tr>
-                            <td class="">NopSec, Inc.</td>
-                            <td class="">Cybersecurity Analyst</td>
-                            <td class="">June 2017</td>
-                            <td class="">Sept 2017</td>
+                            <td class="text-center">NopSec, Inc.</td>
+                            <td class="text-center">Cybersecurity Analyst</td>
+                            <td class="text-center">June 2017</td>
+                            <td class="text-center">Sept 2017</td>
                         </tr>
                         <tr>
-                            <td class="">Self-Employed</td>
-                            <td class="">Software Developer</td>
-                            <td class="">May 2015</td>
-                            <td class="">June 2018</td>
+                            <td class="text-center">Self-Employed</td>
+                            <td class="text-center">Software Developer</td>
+                            <td class="text-center">May 2015</td>
+                            <td class="text-center">June 2018</td>
                         </tr>
                     </table>
                 </div>
-                <div id="hobbiesDiv" class="flex-xl-row" style="margin-bottom:5%">
-                    <h3 id="workHeader" style="margin-bottom:2%">Hobbies</h3>
-                    <ul class="list-group">
-                        <li class="">Building computers or otherwise working with computer hardware.</li>
-                    </ul>
+                <div id="hobbiesDiv" class="" style="">
+                    <div class="row">
+                        <h3 id="workHeader" class="text-center" style=""><strong>Hobbies</strong></h3>
+                        <hr />
+                    </div>
+                    <div class="row">
+                        <div class="placeholder col-sm-2"></div>
+                        <div class="col-sm-10">
+                            <ul class="list-group" style="list-style-position: inside">
+                                <li class="text-left">Building computers or otherwise working with computer hardware.</li>
+                                <li class="text-left">Solving challenging and/or interesting coding problems.</li>
+                                <li class="text-left">Taking a moment to enjoy nature, when possible.</li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div id="personalVid" class="text-center col-sm-6" style="">
-                <video id="VideoContent" controls class="media d-flex align-self-center" style="margin:auto;">
-                    <source src="../Videos/PersonalVideo.mp4" type="video/mp4">
-                </video>
+            <div id="videoOverview" class="col-sm-6 text-center vcenter">
+                <div style="margin-top:20%; margin-bottom:auto;">
+                    <hr />
+                    <video id="VideoContent" controls class=""
+                           style="width:80%; height:auto; ">
+                        <source src="../Videos/PersonalVideo.mp4" type="video/mp4">
+                    </video>
+                    <hr />
+                </div>
             </div>
         </div>
-        <footer id="footer" class="flex-sm-row" style="text-align:center;">
-            <p>&copy; Michael Corso - 2018</p>
+        <!-- Footer -->
+        <footer id="footer" class="row text-center">
+            <hr />
+            <h5>&copy; Michael Corso - 2018</h5>
+            <hr />
         </footer>
     </div>
 </body>
