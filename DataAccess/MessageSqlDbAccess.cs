@@ -74,7 +74,6 @@ namespace DataAccess
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 connection.Open();                                          // Open connection
-                SqlTransaction transaction = connection.BeginTransaction(); // Create transaction
                 SqlCommand command = connection.CreateCommand();            // Create command
 
                 try
