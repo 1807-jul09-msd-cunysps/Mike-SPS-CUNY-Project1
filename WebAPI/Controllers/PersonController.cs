@@ -24,7 +24,7 @@ namespace WebAPI.Controllers
         }
 
         [HttpGet]
-        public JsonResult<PersonModel> Get(int Id)
+        public JsonResult<PersonModel> Get(Guid Id)
         {
             return Json<PersonModel>(PersonSqlDbAccess.GetPersonById(Id));
         }
@@ -78,7 +78,7 @@ namespace WebAPI.Controllers
         }
 
         [HttpDelete]
-        public IHttpActionResult Delete(int Id)
+        public IHttpActionResult Delete(Guid Id)
         {
             try
             {

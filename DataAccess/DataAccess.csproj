@@ -78,6 +78,7 @@
     <Content Include="Queries\DeleteRows.sql" />
     <Content Include="Queries\DropTables.sql" />
     <Content Include="Queries\ShowAll.sql" />
+    <Content Include="Queries\ShowAllCountries.sql" />
     <Content Include="Queries\test.sql" />
     <None Include="app.config" />
     <Content Include="NLog.config">

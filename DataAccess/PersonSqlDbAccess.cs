@@ -14,8 +14,8 @@ namespace DataAccess
                                                  "Initial Catalog=rev-training-mc-contacts-db;" +            // SQL DB
                                                  "Persist Security Info=True;" +                             // Security
                                                  "MultipleActiveResultSets=True;" +                          // MARS
-                                                 "User ID=;" +                                       // User name
-                                                 "Password=";                                       // Password
+                                                 "User ID=revature;" +                                       // User name
+                                                 "Password=Password1";                                       // Password
 
         public static int Add(PersonModel person)
         {
@@ -30,6 +30,7 @@ namespace DataAccess
                 {
                     // INSERT for person
                     command.CommandText = $"INSERT INTO Person VALUES (" +
+                                          $"'{person.Id}', " +
                                           $"'{person.Firstname}', " +
                                           $"'{person.Lastname}'," +
                                           $"'{person.Age}'," +
@@ -37,24 +38,10 @@ namespace DataAccess
                                           ");";
                     command.ExecuteNonQuery();
 
-                    // Retrieve Person ID for person we just submitted
-                    int PersonId;
-                    command.CommandText = "SELECT SCOPE_IDENTITY()";
-                    SqlDataReader reader = command.ExecuteReader();
-                    if (reader.HasRows)
-                    {
-                        reader.Read();
-                        PersonId = Int32.Parse(reader[0].ToString());
-                    }
-                    else
-                    {
-                        throw new Exception("Failed to ExecuteReader for PersonId");
-                    }
-                    reader.Close();
-
                     // INSERT for ContactInfo
                     command.CommandText = $"INSERT INTO ContactInfo VALUES (" +
-                                          $"{PersonId}," +
+                                          $"'{person.ContactInfo.Id}'," +
+                                          $"'{person.Id}'," +
                                           $"'{person.ContactInfo.FK_Country}'," +
                                           $"'{person.ContactInfo.Number}'," +
                                           $"'{person.ContactInfo.Ext}'," +
@@ -64,7 +51,8 @@ namespace DataAccess
 
                     // INSERT for Address
                     command.CommandText = "INSERT INTO Address VALUES (" +
-                                          $"{PersonId}, " +
+                                          $"'{person.Address.Id}', " +
+                                          $"'{person.Id}', " +
                                           $"'{person.Address.AddrLine1}', " +
                                           $"'{person.Address.AddrLine2}', " +
                                           $"'{person.Address.City}', " +
@@ -111,7 +99,7 @@ namespace DataAccess
                                           $"Lastname = '{newInfo.Lastname}', " +
                                           $"Age = '{newInfo.Age}', " +
                                           $"Gender = '{newInfo.Gender}' " +
-                                          $"WHERE Id = {newInfo.Id};";
+                                          $"WHERE Id = '{newInfo.Id}';";
                     command.ExecuteNonQuery();
 
                     // UPDATE for phone
@@ -120,7 +108,7 @@ namespace DataAccess
                                           $"Number = '{newInfo.ContactInfo.Number}', " +
                                           $"Ext = '{newInfo.ContactInfo.Ext}', " +
                                           $"Email = '{newInfo.ContactInfo.Email}' " +
-                                          $"WHERE FK_Person = {newInfo.Id};";
+                                          $"WHERE FK_Person = '{newInfo.Id}';";
                     command.ExecuteNonQuery();
 
                     // UPDATE for address
@@ -131,7 +119,7 @@ namespace DataAccess
                                           $"State = '{newInfo.Address.State}', " +
                                           $"FK_Country = '{newInfo.Address.FK_Country}', " +
                                           $"Zipcode = '{newInfo.Address.Zipcode}' " +
-                                          $"WHERE FK_Person = {newInfo.Id};";
+                                          $"WHERE FK_Person = '{newInfo.Id}';";
                     command.ExecuteNonQuery();
 
                     // Commit transaction
@@ -154,7 +142,7 @@ namespace DataAccess
             }
         }
 
-        public static void Delete(int id)
+        public static void Delete(Guid id)
         {
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
@@ -165,14 +153,14 @@ namespace DataAccess
 
                 try
                 {
-                    // DELETE for Phone
-                    command.CommandText = $"DELETE FROM ContactInfo WHERE phone.FK_Person = {id};";
+                    // DELETE for ContactInfo
+                    command.CommandText = $"DELETE FROM ContactInfo WHERE FK_Person = '{id}';";
                     command.ExecuteNonQuery();
                     // DELETE for Address
-                    command.CommandText = $"DELETE FROM Address WHERE address.FK_Person = {id};";
+                    command.CommandText = $"DELETE FROM Address WHERE FK_Person = '{id}';";
                     command.ExecuteNonQuery();
                     // DELETE for Person
-                    command.CommandText = $"DELETE FROM person WHERE person.id = {id};";
+                    command.CommandText = $"DELETE FROM Person WHERE Id = '{id}';";
                     command.ExecuteNonQuery();
                     // Commit transaction
                     transaction.Commit();
@@ -192,7 +180,7 @@ namespace DataAccess
             }
         }
 
-        public static PersonModel GetPersonById(int id)
+        public static PersonModel GetPersonById(Guid id)
         {
             // Person to return
             PersonModel p = null;
@@ -203,44 +191,44 @@ namespace DataAccess
                 SqlCommand command = connection.CreateCommand();            // Create command
 
                 try
-                {
-                    // Search firstname, lastname, zipcode, city, and phone number for query            
+                {   
                     command.CommandText = $"SELECT * FROM Person AS p " +
-                                          $"LEFT JOIN ContactInfo AS c ON p.ID = c.FK_Person " +
-                                          $"LEFT JOIN address AS a ON p.ID = a.FK_Person " +
-                                          $"WHERE LOWER(p.Firstname) = '{id}' " +
+                                          $"LEFT JOIN ContactInfo AS c ON p.Id = c.FK_Person " +
+                                          $"LEFT JOIN address AS a ON p.Id = a.FK_Person " +
+                                          $"WHERE p.Id = '{id}' " +
                                           $";";
                     SqlDataReader reader = command.ExecuteReader();
                     while (reader.Read())
                     {
                         p = new PersonModel()
                         {
-                            Id = Int32.Parse(reader[0].ToString()),
+                            Id = new Guid(reader[0].ToString()),
                             Firstname = reader[1].ToString(),
                             Lastname = reader[2].ToString(),
                             Age = Int32.Parse(reader[3].ToString()),
                             Gender = reader[4].ToString(),
                             ContactInfo = new ContactInfoModel
                             {
-                                Id = Int32.Parse(reader[5].ToString()),
-                                FK_Person = Int32.Parse(reader[6].ToString()),
-                                FK_Country = Int32.Parse(reader[7].ToString()),
+                                Id = new Guid(reader[5].ToString()),
+                                FK_Person = new Guid(reader[6].ToString()),
+                                FK_Country = new Guid(reader[7].ToString()),
                                 Number = reader[8].ToString(),
                                 Ext = reader[9].ToString(),
                                 Email = reader[10].ToString()
                             },
                             Address = new AddressModel
                             {
-                                Id = Int32.Parse(reader[11].ToString()),
-                                FK_Person = Int32.Parse(reader[12].ToString()),
+                                Id = new Guid(reader[11].ToString()),
+                                FK_Person = new Guid(reader[12].ToString()),
                                 AddrLine1 = reader[13].ToString(),
                                 AddrLine2 = reader[14].ToString(),
                                 City = reader[15].ToString(),
                                 State = reader[16].ToString(),
-                                FK_Country = Int32.Parse(reader[17].ToString()),
+                                FK_Country = new Guid(reader[17].ToString()),
                                 Zipcode = reader[18].ToString()
                             }
                         };
+                        p.Print();
                     }
                     reader.Close();
                     if (p == null)
@@ -272,7 +260,7 @@ namespace DataAccess
                     // Search firstname, lastname, zipcode, city, and phone number for query            
                     command.CommandText = $"SELECT * FROM Person AS p " +
                                           $"LEFT JOIN ContactInfo AS c ON p.ID = c.FK_Person " +
-                                          $"LEFT JOIN address AS a ON p.ID = a.FK_Person " +
+                                          $"LEFT JOIN Address AS a ON p.ID = a.FK_Person " +
                                           $"WHERE LOWER(p.Firstname)    = '{query}' " +
                                           $"OR LOWER(p.Lastname)        = '{query}' " +
                                           $"OR LOWER(p.Age)             = '{query}' " +
@@ -291,29 +279,29 @@ namespace DataAccess
                     {
                         PersonModel p = new PersonModel()
                         {
-                            Id = Int32.Parse(reader[0].ToString()),
+                            Id = new Guid(reader[0].ToString()),
                             Firstname = reader[1].ToString(),
                             Lastname = reader[2].ToString(),
                             Age = Int32.Parse(reader[3].ToString()),
                             Gender = reader[4].ToString(),
                             ContactInfo = new ContactInfoModel
                             {
-                                Id = Int32.Parse(reader[5].ToString()),
-                                FK_Person = Int32.Parse(reader[6].ToString()),
-                                FK_Country = Int32.Parse(reader[7].ToString()),
+                                Id = new Guid(reader[5].ToString()),
+                                FK_Person = new Guid(reader[6].ToString()),
+                                FK_Country = new Guid(reader[7].ToString()),
                                 Number = reader[8].ToString(),
                                 Ext = reader[9].ToString(),
                                 Email = reader[10].ToString()
                             },
                             Address = new AddressModel
                             {
-                                Id = Int32.Parse(reader[11].ToString()),
-                                FK_Person = Int32.Parse(reader[12].ToString()),
+                                Id = new Guid(reader[11].ToString()),
+                                FK_Person = new Guid(reader[12].ToString()),
                                 AddrLine1 = reader[13].ToString(),
                                 AddrLine2 = reader[14].ToString(),
                                 City = reader[15].ToString(),
                                 State = reader[16].ToString(),
-                                FK_Country = Int32.Parse(reader[17].ToString()),
+                                FK_Country = new Guid(reader[17].ToString()),
                                 Zipcode = reader[18].ToString()
                             }
                         };
@@ -331,6 +319,7 @@ namespace DataAccess
 
         public static List<PersonModel> GetAll()
         {
+            logger.Info($"In get all");
             // List to return query results
             List<PersonModel> results = new List<PersonModel>();
             // SQL interaction
@@ -341,51 +330,55 @@ namespace DataAccess
 
                 try
                 {
-                    // Search firstname, lastname, zipcode, city, and phone number for query            
-                    command.CommandText = $"SELECT * FROM Person AS p" +
-                                          $"LEFT JOIN ContactInfo AS c ON p.ID = c.FK_Person " +
-                                          $"LEFT JOIN address AS a ON p.ID = a.FK_Person " +
+                    logger.Info($"Before exec");
+                    command.CommandText = $"SELECT * FROM Person AS p " +
+                                          $"LEFT JOIN ContactInfo AS c ON (p.Id = c.FK_Person) " +
+                                          $"LEFT JOIN Address AS a ON (p.Id = a.FK_Person) " +
                                           $";";
                     SqlDataReader reader = command.ExecuteReader();
+                    logger.Info($"After command executed");
                     while (reader.Read())
                     {
                         PersonModel p = new PersonModel()
                         {
-                            Id = Int32.Parse(reader[0].ToString()),
+                            Id = new Guid(reader[0].ToString()),
                             Firstname = reader[1].ToString(),
                             Lastname = reader[2].ToString(),
                             Age = Int32.Parse(reader[3].ToString()),
                             Gender = reader[4].ToString(),
                             ContactInfo = new ContactInfoModel
                             {
-                                Id = Int32.Parse(reader[5].ToString()),
-                                FK_Person = Int32.Parse(reader[6].ToString()),
-                                FK_Country = Int32.Parse(reader[7].ToString()),
+                                Id = new Guid(reader[5].ToString()),
+                                FK_Person = new Guid(reader[6].ToString()),
+                                FK_Country = new Guid(reader[7].ToString()),
                                 Number = reader[8].ToString(),
                                 Ext = reader[9].ToString(),
                                 Email = reader[10].ToString()
                             },
                             Address = new AddressModel
                             {
-                                Id = Int32.Parse(reader[11].ToString()),
-                                FK_Person = Int32.Parse(reader[12].ToString()),
+                                Id = new Guid(reader[11].ToString()),
+                                FK_Person = new Guid(reader[12].ToString()),
                                 AddrLine1 = reader[13].ToString(),
                                 AddrLine2 = reader[14].ToString(),
                                 City = reader[15].ToString(),
                                 State = reader[16].ToString(),
-                                FK_Country = Int32.Parse(reader[17].ToString()),
+                                FK_Country = new Guid(reader[17].ToString()),
                                 Zipcode = reader[18].ToString()
                             }
                         };
                         results.Add(p);
+                        logger.Info($"Made person");
                     }
                     reader.Close();
+                    logger.Info($"Reader close");
                 }
                 catch (Exception ex)
                 {
                     logger.Info($"PersonSqlDbAccess.GetAll threw: {ex.Message}");
                 }
             }
+            logger.Info($"Results count = {results.Count}");
             return results;
         }
     }

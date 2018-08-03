@@ -1,4 +1,5 @@
-﻿using System.Runtime.Serialization;
+﻿using System;
+using System.Runtime.Serialization;
 
 namespace Models.Person
 {
@@ -6,11 +7,11 @@ namespace Models.Person
     public class ContactInfoModel
     {
         [DataMember]
-        public int Id { get; set; }
+        public Guid Id { get; set; }
         [DataMember]
-        public int FK_Person { get; set; }
+        public Guid FK_Person { get; set; }
         [DataMember]
-        public int FK_Country { get; set; }
+        public Guid FK_Country { get; set; }
         [DataMember]
         public string Number { get; set; }
         [DataMember]

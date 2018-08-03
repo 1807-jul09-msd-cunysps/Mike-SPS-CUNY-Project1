@@ -9,7 +9,7 @@ namespace Models.ContactMe
     public class MessageModel
     {
         [DataMember]
-        public int Id { get; set; }
+        public Guid Id { get; set; }
         [DataMember]
         public bool Read { get; set; }
         [DataMember]

@@ -11,8 +11,7 @@ namespace Models.Person.Resources.Country
     {
         public static NLog.Logger logger = NLog.LogManager.GetCurrentClassLogger();     //logger.Info(e.Message);
 
-        public static string CountriesAsJsonFile = "C:\\Users\\Mike\\Desktop\\Revature\\Mike-SPS-CUNY-Project0\\Models\\Resources\\Countries.json";
-
+        public static string CountriesAsJsonFile = "C:\\Users\\Mike\\Documents\\Coding\\Revature\\Mike-SPS-CUNY-Project1\\Models\\Person\\Resources\\Country\\Countries.json";
         
         private static string connectionString = "Data Source=rev-training-mc-dbs.database.windows.net;" +   // SQL Server
                                                  "Initial Catalog=rev-training-mc-contacts-db;" +            // SQL DB
@@ -29,47 +28,11 @@ namespace Models.Person.Resources.Country
             return countries;
         }
         
-        public static void CreateTable()
-        {
-            string createCountryTable = $"CREATE TABLE Country(" +
-                                 $"Id INT PRIMARY KEY IDENTITY(1,1)," +
-                                 $"[Name] VARCHAR(255)," +
-                                 $"[PhoneCode] VARCHAR(15)," +
-                                 $"[ISO2] VARCHAR(2)," +
-                                 $"[ISO3] VARCHAR(3)" +
-                                 $");";
-            
-            // SQL connection object
-            SqlConnection connection = null;
-            try
-            {
-                connection = new SqlConnection(connectionString);               // Define connection
-                connection.Open();                                              // Open connection
-                try
-                {
-                    SqlCommand command = new SqlCommand(createCountryTable,     // Define command
-                        connection);         
-                    command.ExecuteNonQuery();                                  // Send command
-                }
-                catch (Exception ex)
-                {
-                    Console.WriteLine($"InitTables(): Failed to create table with: '{createCountryTable}'");
-                    Console.WriteLine($"\n{ex.Message}");
-                }
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.Message);
-            }
-            finally
-            {
-                connection.Close();
-            }
-        }
-
         public static void PopulateTable()
         {
             List<CountryModel> countryList = GetCountriesFromJson();
+
+            logger.Info($"countryList = {countryList}");
 
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
@@ -83,7 +46,8 @@ namespace Models.Person.Resources.Country
                     try
                     {
                         // INSERT for countrymodel
-                        command.CommandText = "INSERT INTO Country VALUES (" +
+                        command.CommandText = $"INSERT INTO Country VALUES (" +
+                                              $"'{Guid.NewGuid()}', " + 
                                               $"'{c.Name}', " +
                                               $"'{c.PhoneCode}', " +
                                               $"'{c.ISO2}', " +

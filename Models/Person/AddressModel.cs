@@ -1,4 +1,5 @@
-﻿using System.Runtime.Serialization;
+﻿using System;
+using System.Runtime.Serialization;
 
 namespace Models.Person
 {
@@ -6,9 +7,9 @@ namespace Models.Person
     public class AddressModel
     {
         [DataMember]
-        public int Id { get; set; }
+        public Guid Id { get; set; }
         [DataMember]
-        public int FK_Person { get; set; }
+        public Guid FK_Person { get; set; }
         [DataMember]
         public string AddrLine1 { get; set; }
         [DataMember]
@@ -18,7 +19,7 @@ namespace Models.Person
         [DataMember]
         public string State { get; set; }
         [DataMember]
-        public int FK_Country { get; set; }
+        public Guid FK_Country { get; set; }
         [DataMember]
         public string Zipcode { get; set; }
 
