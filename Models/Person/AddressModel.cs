@@ -21,6 +21,8 @@ namespace Models.Person
         [DataMember]
         public Guid FK_Country { get; set; }
         [DataMember]
+        public string CountryISO2 { get; set; }
+        [DataMember]
         public string Zipcode { get; set; }
 
         public string Print()

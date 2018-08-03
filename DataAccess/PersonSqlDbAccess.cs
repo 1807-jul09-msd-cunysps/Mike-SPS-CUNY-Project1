@@ -319,7 +319,6 @@ namespace DataAccess
 
         public static List<PersonModel> GetAll()
         {
-            logger.Info($"In get all");
             // List to return query results
             List<PersonModel> results = new List<PersonModel>();
             // SQL interaction
@@ -330,13 +329,11 @@ namespace DataAccess
 
                 try
                 {
-                    logger.Info($"Before exec");
                     command.CommandText = $"SELECT * FROM Person AS p " +
                                           $"LEFT JOIN ContactInfo AS c ON (p.Id = c.FK_Person) " +
                                           $"LEFT JOIN Address AS a ON (p.Id = a.FK_Person) " +
                                           $";";
                     SqlDataReader reader = command.ExecuteReader();
-                    logger.Info($"After command executed");
                     while (reader.Read())
                     {
                         PersonModel p = new PersonModel()
@@ -368,17 +365,14 @@ namespace DataAccess
                             }
                         };
                         results.Add(p);
-                        logger.Info($"Made person");
                     }
                     reader.Close();
-                    logger.Info($"Reader close");
                 }
                 catch (Exception ex)
                 {
                     logger.Info($"PersonSqlDbAccess.GetAll threw: {ex.Message}");
                 }
             }
-            logger.Info($"Results count = {results.Count}");
             return results;
         }
     }

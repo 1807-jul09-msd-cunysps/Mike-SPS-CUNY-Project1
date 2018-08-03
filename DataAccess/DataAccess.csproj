@@ -61,6 +61,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CountrySqlDbAccess.cs" />
     <Compile Include="PersonSqlDbAccess.cs" />
     <Compile Include="MemDbAccess.cs" />
     <Compile Include="FileDbAccess.cs" />
@@ -74,7 +75,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Queries\Messages\Delete.sql" />
-    <Content Include="Queries\Messages\ShoqAll.sql" />
+    <Content Include="Queries\Messages\ShowAll.sql" />
     <Content Include="Queries\People\CreatePersonTables.sql" />
     <Content Include="Queries\Messages\CreateMessageTables.sql" />
     <Content Include="Queries\People\ShowAll.sql" />

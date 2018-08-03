@@ -13,16 +13,9 @@ namespace ConsoleApp
         static void Main(string[] args)
         {
 
-            MessageSqlDbAccess.Update(
-                new Models.ContactMe.MessageModel
-                {
-                    Id = new Guid("F7AB131E-354C-4698-A673-BB27D0D0D64F"),
-                    WasRead = true,
-                    FullName = "John Corso",
-                    Email = "mc5262@nyu.edy",
-                    Message = "This is a test message."
-                }
-            );
+            CountryModel c = CountrySqlDbAccess.GetByISO2("US");
+            Console.WriteLine(c.Print());
+
             Console.ReadLine();
         }
     }

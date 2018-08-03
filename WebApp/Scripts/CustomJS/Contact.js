@@ -289,11 +289,11 @@ function buildPersonObj() {
             "AddrLine2": document.querySelector("#inputAddr2").value,
             "City": document.querySelector("#inputCity").value,
             "State": document.querySelector("#inputState").value,
-            "Country": document.querySelector("#inputCountry").value,
+            "CountryISO2": document.querySelector("#inputCountry").value,
             "Zipcode": document.querySelector("#inputZipcode").value
         },
-        "Contact": {
-            "Country": document.querySelector("#inputCountry").value,
+        "ContactInfo": {
+            "CountryISO2": document.querySelector("#inputCountry").value,
             "Number": document.querySelector("#inputPhoneNum").value,
             "Ext": document.querySelector("#inputPhoneExt").value,
             "Email": document.querySelector("#inputEmail").value

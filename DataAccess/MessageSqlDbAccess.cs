@@ -101,7 +101,7 @@ namespace DataAccess
                 try
                 {
                     // Search firstname, lastname, zipcode, city, and phone number for query            
-                    command.CommandText = $"DELETE FROM Message WHERE Id = '{id}';";
+                    command.CommandText = $"SELECT * FROM Message WHERE Id = '{id}';";
 
                     SqlDataReader reader = command.ExecuteReader();
                     while (reader.Read())

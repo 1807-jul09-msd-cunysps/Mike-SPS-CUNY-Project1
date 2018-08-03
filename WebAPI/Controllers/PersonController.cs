@@ -36,11 +36,25 @@ namespace WebAPI.Controllers
             {
                 try
                 {
+                    // Convert ISO2 to CountryModel objects
+                    p.Address.FK_Country = Guid.Empty;
+                    if (p.Address.CountryISO2 != null)
+                    {
+                        p.Address.FK_Country = CountrySqlDbAccess.GetByISO2(p.Address.CountryISO2).Id;
+                    }
+                    p.ContactInfo.FK_Country = Guid.Empty;
+                    if (p.Address.CountryISO2 != null)
+                    {
+                        p.ContactInfo.FK_Country = CountrySqlDbAccess.GetByISO2(p.ContactInfo.CountryISO2).Id;
+                    }
+                    // Create new Guid for Person, Address, ContactInfo
+                    p.Id = p.Address.Id = p.ContactInfo.Id = Guid.NewGuid();
+
                     PersonSqlDbAccess.Add(p);
                     logger.Info($"PersonController.Post successfully added {p.Print()}");
                     return Ok();
                 }
-                catch(Exception ex)
+                catch (Exception ex)
                 {
                     logger.Info($"PersonController.Post threw error {ex.Message} trying to add {p.Print()}");
                     return BadRequest();
@@ -54,13 +68,32 @@ namespace WebAPI.Controllers
         }
 
         [HttpPut]
-        public IHttpActionResult Put(PersonModel p)
+        public IHttpActionResult Put(Guid Id, [FromBody] PersonModel p)
         {
             if (p != null)
             {
                 try
                 {
-                    PersonSqlDbAccess.Update(p);
+                    PersonModel original = PersonSqlDbAccess.GetPersonById(Id);
+
+                    if (p.Firstname != null) original.Firstname = p.Firstname;
+                    if (p.Lastname != null) original.Lastname = p.Lastname;
+                    if (p.Age != null) original.Age = p.Age;
+                    if (p.Gender != null) original.Gender = p.Gender;
+
+                    if (p.Address.AddrLine1 != null) original.Address.AddrLine1 = p.Address.AddrLine1;
+                    if (p.Address.AddrLine2 != null) original.Address.AddrLine2 = p.Address.AddrLine2;
+                    if (p.Address.City != null) original.Address.City = p.Address.City;
+                    if (p.Address.State != null) original.Address.State = p.Address.State;
+                    if (p.Address.CountryISO2 != null) original.Address.FK_Country = CountrySqlDbAccess.GetByISO2(p.Address.CountryISO2).Id;
+                    if (p.Address.Zipcode != null) original.Address.Zipcode = p.Address.Zipcode;
+
+                    if (p.ContactInfo.CountryISO2 != null) original.ContactInfo.FK_Country = CountrySqlDbAccess.GetByISO2(p.ContactInfo.CountryISO2).Id;
+                    if (p.ContactInfo.Number != null) original.ContactInfo.Number = p.ContactInfo.Number;
+                    if (p.ContactInfo.Ext != null) original.ContactInfo.Ext = p.ContactInfo.Ext;
+                    if (p.ContactInfo.Email != null) original.ContactInfo.Email = p.ContactInfo.Email;
+
+                    PersonSqlDbAccess.Update(original);
                     logger.Info($"PersonController.Put successfully edited {p.Print()}");
                     return Ok();
                 }
@@ -72,7 +105,7 @@ namespace WebAPI.Controllers
             }
             else
             {
-                logger.Info($"PersonController.Post failed to edit {p.Print()}");
+                logger.Info($"PersonController.Put failed to edit {p.Print()}");
                 return BadRequest();
             }
         }
