@@ -73,13 +73,12 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Queries\CreatePersonTables.sql" />
-    <Content Include="Queries\CreateMessageTables.sql" />
-    <Content Include="Queries\DeleteRows.sql" />
-    <Content Include="Queries\DropTables.sql" />
-    <Content Include="Queries\ShowAll.sql" />
-    <Content Include="Queries\ShowAllCountries.sql" />
-    <Content Include="Queries\test.sql" />
+    <Content Include="Queries\Messages\Delete.sql" />
+    <Content Include="Queries\Messages\ShoqAll.sql" />
+    <Content Include="Queries\People\CreatePersonTables.sql" />
+    <Content Include="Queries\Messages\CreateMessageTables.sql" />
+    <Content Include="Queries\People\ShowAll.sql" />
+    <Content Include="Queries\Countries\ShowAllCountries.sql" />
     <None Include="app.config" />
     <Content Include="NLog.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

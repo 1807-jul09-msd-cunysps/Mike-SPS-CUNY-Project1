@@ -11,12 +11,17 @@ namespace Models.ContactMe
         [DataMember]
         public Guid Id { get; set; }
         [DataMember]
-        public bool Read { get; set; }
+        public bool WasRead { get; set; }
         [DataMember]
         public string FullName { get; set; }
         [DataMember]
         public string Email { get; set; }
         [DataMember]
         public string Message { get; set; }
+
+        public string Print()
+        {
+            return $"{FullName} - {Email}\n{Message}";
+        }
     }
 }

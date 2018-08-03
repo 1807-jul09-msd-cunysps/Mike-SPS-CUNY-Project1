@@ -3,6 +3,7 @@ using Xunit.Abstractions;
 using System;
 using DataAccess;
 using Models.Person;
+using Models.ContactMe;
 using System.Collections.Generic;
 
 namespace xUnitTest
@@ -135,6 +136,71 @@ namespace xUnitTest
             // Assert
             Assert.True(PersonSqlDbAccess.GetPersonById(guids[0]) == null);
             Assert.True(PersonSqlDbAccess.GetPersonById(guids[1]) == null);
+        }
+
+        [Fact]
+        public void Test_MessageSqlDbCRUD()
+        {
+            Guid[] guids = new Guid[] { new Guid("F7AB131E-354C-4698-A673-BB27D0D0D64F"),
+                                        new Guid("92115905-9A48-4A17-9521-E35560F74674") };
+
+            /* Create */
+
+            // DB before changes
+            List<MessageModel> before = MessageSqlDbAccess.GetAll();
+            // Changes
+            MessageSqlDbAccess.Add(
+                new Models.ContactMe.MessageModel
+                {
+                    Id = guids[0],
+                    WasRead = false,
+                    FullName = "Michael Corso",
+                    Email = "mc5262@nyu.edy",
+                    Message = "This is a test message."
+                }
+            );
+            
+            // DB after changes
+            List<MessageModel> after = MessageSqlDbAccess.GetAll();
+            // Assert
+            Assert.True(after.Count - before.Count == 1);
+
+            /* Update */
+
+            // DB before changes
+            before = MessageSqlDbAccess.Search("John Corso");
+            foreach (MessageModel m in before)
+            {
+                output.WriteLine(m.Print());
+            }
+            // Changes
+            MessageSqlDbAccess.Update(
+                new Models.ContactMe.MessageModel
+                {
+                    Id = guids[0],
+                    WasRead = true,
+                    FullName = "John Corso",
+                    Email = "mc5262@nyu.edy",
+                    Message = "This is a test message."
+                }
+            );
+            // After changes
+            after = MessageSqlDbAccess.Search("John Corso");
+            foreach (MessageModel m in after)
+            {
+                output.WriteLine(m.Print());
+            }
+            // Assert
+            Assert.True(after.Count - before.Count == 1);
+
+            /* Delete */
+
+            // Changes
+            PersonSqlDbAccess.Delete(guids[0]);
+            //PersonSqlDbAccess.Delete(guids[1]);
+            // Assert
+            Assert.True(PersonSqlDbAccess.GetPersonById(guids[0]) == null);
+            //Assert.True(PersonSqlDbAccess.GetPersonById(guids[1]) == null);
         }
     }
 }
