@@ -11,8 +11,8 @@
 --DELETE FROM Address;
 --delete from person;
 
-SELECT * FROM person AS p
-INNER JOIN ContactInfo AS c ON (p.Id = c.FK_Person)
-INNER JOIN address AS addr ON (p.Id = addr.FK_Person);
+--SELECT * FROM person AS p
+--INNER JOIN ContactInfo AS c ON (p.Id = c.FK_Person)
+--INNER JOIN address AS addr ON (p.Id = addr.FK_Person);
 
---SELECT * FROM contactinfo;
+SELECT * FROM person;

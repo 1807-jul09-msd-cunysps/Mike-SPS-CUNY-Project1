@@ -267,11 +267,11 @@ function sendPost(newPerson) {
         data: person,
         dataType: "JSON",
         success: function () {
-            window.location.replace('http://localhost:50703/Pages/Home.html');
+            window.location.replace('http://rev-mc-project1.azurewebsites.net/Pages/Home.html');
         },
         error: function (xhr, status, error) {
             if (xhr.status == 200)
-                window.location.replace('http://localhost:50703/Pages/Home.html');
+                window.location.replace('http://rev-mc-project1.azurewebsites.net/Pages/Home.html');
         }
     })
 }

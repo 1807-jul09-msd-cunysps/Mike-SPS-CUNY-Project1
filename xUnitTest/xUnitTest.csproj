@@ -69,7 +69,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DataAccessTests.cs" />
-    <Compile Include="DataTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

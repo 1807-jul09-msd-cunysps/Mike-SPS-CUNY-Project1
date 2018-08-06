@@ -1,3 +1,3 @@
 ﻿--DROP TABLE Message;
 
-DELETE FROM Message;
+-- DELETE FROM Message;
