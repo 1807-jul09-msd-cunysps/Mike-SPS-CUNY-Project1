@@ -8,118 +8,132 @@
           integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <!-- Custom CSS -->
     <link href="../Styles/CustomCSS/Contact.css" rel="stylesheet" />
+    <link href="../Styles/CustomCSS/AboutMe.css" rel="stylesheet" />
     <!-- JQuery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </head>
 <body>
-    <div id="myContent" class="container-fluid" style="width:70%;">
-        <!-- Header -->
-        <header id="header" class="flex-sm-row" style="">
-            <h1 id="banner" class="jumbotron jumbotron-fluid flex-sm-row text-center" style="margin-bottom:0; padding-bottom:4%; border-bottom: 3px solid black"><strong>Michael Corso</strong></h1>
-            <nav class="navbar sticky-top navbar-dark bg-dark jumbotron flex-sm-row" style="padding-top:3%; padding-bottom:3%;">
-                <div id="navButtons" role="group" class="btn-group-sm ">
-                    <a class="btn btn-primary btn-dark" href="Home.html">Home</a>
-                    <a class="btn btn-dark btn-primary" href="AboutMe.html">About Me</a>
-                    <a class="btn btn-dark btn-primary" href="ContactMe.html">Contact Me</a>
-                    <a class="btn btn-dark btn-primary" href="Register.html" style="float:right;">Register</a>
-                </div>
-            </nav>
-        </header>
-        <!-- Content -->
-        <!-- Resume Version -->
-        <!--
-                SUMMARY
-
-    Software developer seeking a position with an innovative, technology-focused organization. Proven ability to manage multiple projects while maintaining a high attention to detail. Exceptional analytical and problem-solving skills. Capable of implementing complex concepts clearly and concisely. Always working to expand my knowledge and improve myself through learning and approaching projects with an objective disposition.
-
-    TECHNICAL SKILLS
-
-    Java (Spring)	JS (Node, Express, React)	SQL
-    C# (ASP.NET, EF, MVC)	C (CUDA C)	Git / GitHub / BitBucket
-    Python (Django)	GCP / Azure	Hadoop / MapReduce / Spark
-
-    RELEVANT EXPERIENCE
-
-
-    Cybersecurity Analyst at NopSec, Inc., Brooklyn, NY 	June 2017 – September 2017
-    	Cybersecurity Compliance
-    o	Assisted clients with compliance matters under: NYDFS, FRBNY, NIST, FFIEC, and GLBA.
-    o	Drafted, edited, and reviewed policies, procedures, and other relevant documentation necessary for compliance or normally requested by auditors of financial institutions.
-    o	Managed client expectations regarding what to expect throughout the audit process.
-    o	Performed risk assessments, reviewed corporate-governance documents, internal processes, and controls, and performed client-personnel interviews.
-    o	Reviewed clients’ security systems, including software, hardware, and network topologies.
-    	Software Engineer
-    o	Wrote scripts and SSHed into external VMs to run, parse, and review vulnerability scans.
-    o	Wrote Python scripts for various pen testing tasks (e.g. password-hash-cracking).
-    o	Assisted with performing security assessments (e.g. XSS, request forgeries, and SQLi).
-
-    Research Assistant at New York University, New York, NY		August 2016 – December 2016
-    	Setup and configured a custom Mininet environment on Linux using its Python API. We used this to create a network topology and have control over the individual switches, connections, and nodes.
-    o	Simulated cellular connections by adjusting bandwidth, delay, loss rates, etc. to find their effects on round-trip-time and total packets sent. The goal of this project was to quantify the effect that a client-node’s poor connection has on the server due to the re-transmission of lost packets.
-    o	Wrote server and client programs to simulate taxis traveling around a city, gathering data, and forwarding the collected data to the server. The goal of this project was to determine how many taxis were needed to maintain a constant flow of data from all sectors of the city.
-
-
-    Freelance Software Developer			June 2015 – Present
-
-    	Developed software for gathering stock-trading data, using Quandl’s API, and relevant news articles, from Google Finance and Seeking Alpha. Data and news-article gathering was automated using Java, running on a GCP VM. News articles were parsed, organized, and filtered using a combination of Java regexes and Hadoop MapReduce prior to analysis. Analysis focused on the relationship between the quantity of news articles, word usage in news articles, and significant stock movements.
-    	Created a web application using C#’s MVC.NET framework. The application allowed users to search for and make public posts filtered based on category and location. Data models were created and managed using Entity Framework (EF6). The SQL database and web application were deployed with Azure.
-    	Created a browser-based, multiplayer game using HTML, CSS, and JavaScript/TypeScript. Used AngularJS to create controllers and manage HTML and CSS. Wrote multiple unit tests with NodeJS, Grunt, and Karma. Built Android and iOS apps with Adobe PhoneGap.
-    	Created a chat program using Java, JavaFX, and MySQL. The server utilized Java’s NIO library and executors to maintain concurrent connections while keeping CPU utilization to a minimum. Front and back-end GUIs were developed using JavaFX. User-data was stored and managed using MySQL.
-
-
-                -->
-        <!-- Cover Letter Version-->
-        <div class="row">
-            <div id="placeholder" class="col-sm-2"></div>
-            <div id="aboutMeContent" class="col-sm-8">
-                <div id="aboutMeHeader" class="" style="">
-                    <h3 id="educationHeader" class="text-left" style=""><strong>About Me</strong></h3>
+    <div id="page" class="container-fluid" style="">
+        <div id="mainRow" class="row">
+            <div class="leftCol col-sm-1" style=""> </div>
+            <div class="col-sm-10">
+                <!-- Header -->
+                <header id="header" class="flex-sm-row" style="">
+                    <h1 id="banner" class="text-center" style="">Michael Corso</h1>
+                    <nav class="navbar sticky-top navbar-dark" style="">
+                        <div id="navButtons" role="group" class="btn-group-sm ">
+                            <a class="btn btn-primary btn-dark" href="Home.html">Home</a>
+                            <a class="btn btn-dark btn-primary" href="AboutMe.html">About Me</a>
+                            <a class="btn btn-dark btn-primary" href="ContactMe.html">Contact Me</a>
+                            <a class="btn btn-dark btn-primary" href="Register.html" style="float:right;">Register</a>
+                        </div>
+                    </nav>
+                </header>
+                <!-- Content -->
+                <div class="row">
+                    <!--<h3 id="aboutMeHeader" class="text-center" style=""><strong>Michael Corso</strong></h3>-->
+                    <div id="linksDiv" class="text-center">
+                        <input type="image"
+                               title="My GitHub"
+                               src="../Media/Images/github-octocat.png"
+                               style="height:3.5%; width:3.5%; margin-right:1%; border: solid black;"
+                               onclick="window.open('https://github.com/mcorso21')" />
+                        <input type="image"
+                               title="LinkedIn"
+                               src="../Media/Images/linkedIn.png"
+                               style="height:3.5%; width:3.5%; border: solid black;"
+                               onclick="window.open('https://www.linkedin.com/in/michael-corso-0a7415151/')" />
+                    </div>
                     <hr />
+                    <div id="placeholder" class="col-sm-1"></div>
+                    <div id="leftColumn" class="col-sm-3 text-center" style="font-size: 1vw">
+                        <div id="techSkills">
+                            <h3>Technical Skills</h3>
+                            <hr />
+                            <table class="table">
+                                <tr><td class="text-center">C, CUDA C</td></tr>
+                                <tr><td class="text-center">C#</td></tr>
+                                <tr><td class="text-center">Java</td></tr>
+                                <tr><td class="text-center">JavaScript, HTML, CSS</td></tr>
+                                <tr><td class="text-center">Python</td></tr>
+
+                                <tr><td class="text-center">SQL</td></tr>
+                                <tr><td class="text-center">Hadoop (MapReduce)</td></tr>
+
+                                <tr><td class="text-center">Azure, GCP</td></tr>
+                                <tr><td class="text-center">GitHub</td></tr>
+                            </table>
+                        </div>
+                    </div>
+                    <div id="rightColumn" class="col-sm-7">
+                        <h3 class="text-center">Introduction</h3>
+                        <hr />
+                        <div id="aboutMeParas" class="text-center">
+                            <p id="intro" class="text-justify" style="font-size: 1vw">
+                                &nbsp;&nbsp;&nbsp;&nbsp;Software developer with cybersecurity-compliance
+                                background seeking a position with an innovative, technology-focused
+                                organization. Proven ability to manage multiple projects while maintaining
+                                a high attention to detail. Exceptional analytical and problem-solving
+                                skills. Capable of implementing complex concepts clearly and concisely.
+                                Always working to expand my knowledge and improve myself through learning
+                                and approaching projects with an objective disposition.
+                            </p>
+                        </div>
+                        <div id="techSkills" class="text-center" style="font-size: 1vw">
+                        </div>
+                        <div id="interestingProjects" class="text-center" style="font-size: 1vw">
+                            <h3>Interesting Projects</h3>
+                            <hr />
+                            <div id="project1" class="text-justify">
+                                <h4><i>Virtual Network</i></h4>
+                                <p>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;Setup and configured a custom Mininet
+                                    environment on Linux using its Python API. Mininet was used to create
+                                    a virtual network and customize the network topology, giving
+                                    control over the individual switches, connections, and nodes.
+                                    <ul>
+                                        <li>
+                                            Simulated cellular connections by adjusting bandwidth, delay, loss
+                                            rates, etc. to find their effects on round-trip-time and total packets
+                                            sent. The goal of this project was to quantify the effect that a
+                                            client-node’s poor connection has on the server due to the
+                                            re-transmission of lost packets.
+                                        </li>
+                                        <li>
+                                            Wrote server and client programs to simulate taxis traveling around
+                                            a city, gathering data, and forwarding the collected data to the
+                                            server. The goal of this project was to determine how many taxis were
+                                            needed to maintain a constant flow of data from all sectors of the
+                                            city.
+                                        </li>
+                                    </ul>
+                                </p>
+                            </div>
+                            <div id="project2" class="text-justify">
+                                <h4><i>Stock Analysis</i></h4>
+                                <p>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;Developed software for gathering
+                                    stock-trading data, using Quandl’s API, and relevant news articles,
+                                    from Google Finance and Seeking Alpha. Data and news-article gathering
+                                    was automated using Java, running on a GCP VM. News articles were parsed,
+                                    organized, and filtered using a combination of Java regexes and Hadoop
+                                    MapReduce prior to analysis. Analysis focused on the relationship between
+                                    the quantity of news articles, word usage in news articles,
+                                    and significant stock movements.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="placeholder" class="col-sm-2"></div>
                 </div>
-                <div id="aboutMeParas">
+                <footer id="footer" class="row text-center">
                     <hr />
-                    <p class="text-justify" style="font-size: 1vw">
-                        &nbsp;&nbsp;&nbsp;&nbsp;Hello and thank you for taking the time to get to know me!
-                        My name is Michael, I am a software developer with a cybersecurity background and
-                        recently graduated from New York University's Master's program for Computer Science.
-                        I have loved technology since I was young, Since I can remember I have been taking electronics
-                        apart, attempting to figure out what's what, and how to properly put them back together.
-                        This aspect of me has followed me down my software development path, always pushing
-                        me to better understand the inner-workings of software and how current methods can
-                        be improved.
-                    </p>
-                    <p class="text-justify" style="font-size: 1vw">
-                        &nbsp;&nbsp;&nbsp;&nbsp;I have a diverse background related to computer science gained from
-                        a combination of real-world practical experience, research projects at NYU, and personal projects
-                        I have undertaken to better understand various topics. My previous line of work dealt mostly
-                        with compliance related to financial institutions, which transitioned into cyberecurity compliance
-                        as the need grew over the last few years. I have worked directly with Bank CISO (Chief Information
-                        Security Officers) to assist them in planning and designing their cybersecurity governance to
-                        satisfy applicable laws and regulations.
-                    </p>
-                    <p class="text-justify" style="font-size: 1vw">
-                        &nbsp;&nbsp;&nbsp;&nbsp;Since transitioning to a more software-development role, I have gained
-                        a broad background in a variety of technologies. I am most comfortable working in back-end
-                        development, however, I am also experienced working with HTML, CSS, and JavaScript. I have
-                        created and consumed various REST APIs using JavaScript, Java, and C#. I have experience
-                        working with various databases structures, including SQL and Hadoop. I am comfortable working
-                        with Google Cloud Platform (GCP) and Azure as cloud providers, and utilizing Git to manage
-                        version control.
-                    </p>
+                    <h5>&copy; Michael Corso - 2018</h5>
                     <hr />
-                    <p class="text-justify" style="font-size: 1vw">
-                        Thank you again for taking the time to learn a bit more about me!
-                    </p>
-                </div>
+                </footer>
             </div>
-            <div id="placeholder" class="col-sm-2"></div>
+            <div class="rightCol col-sm-1" style=""> </div>
         </div>
-        <!-- Footer -->
-        <footer id="footer" class="row text-center">
-            <hr />
-            <h5>&copy; Michael Corso - 2018</h5>
-            <hr />
-        </footer>
     </div>
 </body>
 </html>

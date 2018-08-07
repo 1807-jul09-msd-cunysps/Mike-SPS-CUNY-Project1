@@ -78,6 +78,7 @@
     <Content Include="Queries\Messages\CreateMessageTables.sql" />
     <Content Include="Queries\People\ShowAll.sql" />
     <Content Include="Queries\Countries\ShowAllCountries.sql" />
+    <Content Include="Queries\temp.sql" />
     <None Include="app.config" />
     <Content Include="NLog.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

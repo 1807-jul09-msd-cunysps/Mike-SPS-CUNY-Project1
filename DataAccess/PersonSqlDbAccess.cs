@@ -14,8 +14,8 @@ namespace DataAccess
                                                  "Initial Catalog=rev-training-mc-contacts-db;" +            // SQL DB
                                                  "Persist Security Info=True;" +                             // Security
                                                  "MultipleActiveResultSets=True;" +                          // MARS
-                                                 "User ID=;" +                                       // User name
-                                                 "Password=";                                       // Password
+                                                 "User ID=revature;" +                                       // User name
+                                                 "Password=Password1";                                       // Password
 
         public static int Add(PersonModel person)
         {
