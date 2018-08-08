@@ -93,14 +93,18 @@
     <Import Include="System.Web.UI.HtmlControls" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Media\Images\about-thumbnail.png" />
     <Content Include="Media\Images\Bootstrap-FH\bootstrap-formhelpers-countries.flags-LICENSE.txt" />
     <Content Include="Media\Images\Bootstrap-FH\bootstrap-formhelpers-countries.flags.png" />
     <Content Include="Media\Images\Bootstrap-FH\bootstrap-formhelpers-currencies.flags.png" />
     <Content Include="Media\Images\Bootstrap-FH\bootstrap-formhelpers-googlefonts.png" />
+    <Content Include="Media\Images\contact-thumbnail.png" />
     <Content Include="Media\Images\github-octocat.png" />
+    <Content Include="Media\Images\home-thumbnail.png" />
     <Content Include="Media\Images\IntlPhone\flags%402x.png" />
     <Content Include="Media\Images\IntlPhone\flags.png" />
     <Content Include="Media\Images\linkedIn.png" />
+    <Content Include="Media\Images\register-thumbnail.png" />
     <Content Include="Pages\ContactMe.html" />
     <Content Include="Pages\AboutMe.html" />
     <Content Include="Pages\Register.html" />
@@ -110,7 +114,7 @@
     <Content Include="Scripts\CustomJS\Register.js" />
     <Content Include="Scripts\intlTelInput.js" />
     <Content Include="Styles\bootstrap-formhelpers.css" />
-    <Content Include="Styles\CustomCSS\AboutMe.css" />
+    <Content Include="Styles\CustomCSS\Shared.css" />
     <Content Include="Styles\CustomCSS\ContactMe.css" />
     <Content Include="Styles\CustomCSS\Register.css" />
     <Content Include="Styles\intlTelInput.css" />

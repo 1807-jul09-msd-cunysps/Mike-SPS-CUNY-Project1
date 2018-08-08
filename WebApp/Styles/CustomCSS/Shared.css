@@ -1,0 +1,64 @@
+﻿.leftCol {
+    padding-bottom: 100%;
+    /*border-right-style: solid;*/
+    border-width: thick;
+    border-color: #872e2e;
+    background-color: #cecece;
+}
+
+.rightCol {
+    padding-bottom: 100%;
+    /*border-left-style: solid;*/
+    border-width: thick;
+    border-color: #872e2e;
+    background-color: #cecece;
+}
+
+#custHeader {
+    background-color: #cecece;
+    border-bottom: solid;
+    border-width: thick;
+    border-color: #872e2e;
+    padding: 2%;
+}
+
+#nameBanner {
+    
+    border-bottom: solid;
+    border-width: thin;
+    border-color: #872e2e;
+    padding-bottom: 1%;
+    font-weight: bold;
+    font-family: 'EB Garamond', serif;
+    font-variant: small-caps;
+    font-size: 4vw;
+    color: #872e2e;
+    margin-bottom: 2%;
+}
+
+.navButton, .extNavButton {
+    
+    border-color: #872e2e;
+    margin-left: 1.5%;
+    height: 2.5%;
+    width: 2.5%;
+}
+
+.navButtonHover  {
+    border: solid;
+    border-color: #ffffff;
+}
+
+.extNavButton {
+    float: right;
+    margin-left: 0;
+    margin-right: 1.5%;
+    height: 3%;
+    width: 3%;
+}
+
+.btn.btn-primary {
+    color: #872e2e; 
+    background-color: #cecece; 
+    border-color: #872e2e;
+}

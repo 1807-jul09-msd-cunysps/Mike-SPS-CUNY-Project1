@@ -4,16 +4,19 @@
     <meta charset="utf-8" />
     <title>Contact Me</title>
     <!-- Bootstrap -->
-    <link type="text/css" rel="stylesheet" 
+    <link type="text/css" rel="stylesheet"
           href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
-          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" 
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
           crossorigin="anonymous">
     <!-- Telephone Library with Flags -->
     <link type="text/css" rel="stylesheet" href="../Styles/intlTelInput.css">
     <!-- Country List -->
     <link type="text/css" rel="stylesheet" href="../Styles/bootstrap-formhelpers.css">
     <!-- Custom CSS -->
-    <link type="text/css" rel="stylesheet" href="../Styles/CustomCSS/Register.css"/>
+    <link type="text/css" rel="stylesheet" href="../Styles/CustomCSS/Register.css" />
+    <!-- Shared CSS -->
+    <link href="https://fonts.googleapis.com/css?family=EB+Garamond" rel="stylesheet">
+    <link href="../Styles/CustomCSS/Shared.css" rel="stylesheet" />
     <!-- JQuery -->
     <script type="text/javascript" src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.js"></script>
     <!-- Telephone Library with Flags -->
@@ -24,201 +27,245 @@
     <script type="text/javascript" src="../Scripts/CustomJS/Register.js"></script>
 </head>
 <body>
-    <div id="myContent" class="container-fluid" style="width:70%;">
-        <!-- Header -->
-        <header id="header" class="flex-sm-row" style="">
-            <h1 id="banner" class="jumbotron jumbotron-fluid flex-sm-row text-center" style="margin-bottom:0; padding-bottom:4%; border-bottom: 3px solid black"><strong>Michael Corso</strong></h1>
-            <nav class="navbar sticky-top navbar-dark bg-dark jumbotron flex-sm-row" style="padding-top:3%; padding-bottom:3%;">
-                <div id="navButtons" role="group" class="btn-group-sm ">
-                    <a class="btn btn-primary btn-dark" href="Home.html">Home</a>
-                    <a class="btn btn-dark btn-primary" href="AboutMe.html">About Me</a>
-                    <a class="btn btn-dark btn-primary" href="ContactMe.html">Contact Me</a>
-                    <a class="btn btn-dark btn-primary" href="Register.html" style="float:right;">Register</a>
-                </div>
-            </nav>
-        </header>
-        <!-- Content -->
-        <!-- Form -->
-        <form id="inputForm">
-            <!-- Personal Info -->
-            <fieldset class="form-group text-center custom-new-input-section">
-                <h4>Personal Info</h4>
-                <hr />
-                <!-- Row for: First Name, Last Name -->
-                <div class="row custom-new-row-group">
-                    <div class="placeholder col-sm-1"></div>
-                    <label for="inputFirstName" class="col-form-label col-sm-2 text-right">First Name</label>
-                    <div class="col-sm-3">
-                        <input type="text" class="form-control text-left" id="inputFirstName" placeholder="First Name">
+    <div id="page" class="container-fluid">
+        <div id="mainRow" class="row">
+            <div class="leftCol col-sm-1"> </div>
+            <div class="col-sm-10">
+                <!-- Header -->
+                <header id="custHeader" class="row">
+                    <h1 id="nameBanner" class="text-center">Michael Corso</h1>
+                    <div id="navButtons" class="">
+                        <input type="image"
+                               class="navButton"
+                               title="Home"
+                               src="../Media/Images/home-thumbnail.png"
+                               onclick="document.location.href = '/Pages/Home.html'"
+                               onmouseover="$(this).addClass('navButtonHover');"
+                               onmouseout="$(this).removeClass('navButtonHover');" />
+                        <input type="image"
+                               class="navButton"
+                               title="About"
+                               src="../Media/Images/about-thumbnail.png"
+                               onclick="document.location.href = '/Pages/AboutMe.html'"
+                               onmouseover="$(this).addClass('navButtonHover');"
+                               onmouseout="$(this).removeClass('navButtonHover');" />
+                        <input type="image"
+                               class="navButton"
+                               title="Contact"
+                               src="../Media/Images/contact-thumbnail.png"
+                               onclick="document.location.href = '/Pages/ContactMe.html'"
+                               onmouseover="$(this).addClass('navButtonHover');"
+                               onmouseout="$(this).removeClass('navButtonHover');" />
+                        <input type="image"
+                               class="navButton"
+                               title="Register"
+                               src="../Media/Images/register-thumbnail.png"
+                               onclick="document.location.href = '/Pages/Register.html'"
+                               onmouseover="$(this).addClass('navButtonHover');"
+                               onmouseout="$(this).removeClass('navButtonHover');" />
+                        <input type="image"
+                               class="extNavButton"
+                               title="My GitHub"
+                               src="../Media/Images/github-octocat.png"
+                               onclick="window.open('https://github.com/mcorso21')"
+                               onmouseover="$(this).addClass('navButtonHover');"
+                               onmouseout="$(this).removeClass('navButtonHover');" />
+                        <input type="image"
+                               class="extNavButton"
+                               title="My LinkedIn"
+                               src="../Media/Images/linkedIn.png"
+                               onclick="window.open('https://www.linkedin.com/in/michael-corso-0a7415151/')"
+                               onmouseover="$(this).addClass('navButtonHover');"
+                               onmouseout="$(this).removeClass('navButtonHover');" />
                     </div>
-                    <label for="inputLastName" class="col-form-label col-sm-2 text-right">Last Name</label>
-                    <div class="col-sm-3">
-                        <input type="text" class="form-control text-left" id="inputLastName" placeholder="Last Name">
-                    </div>
-                </div>
-                <!-- Row for: Age, Gender -->
-                <div class="row custom-new-row-group">
-                    <div class="placeholder col-sm-1"></div>
-                    <label for="inputAge" class="text-right col-sm-2 col-form-label">Age</label>
-                    <div class="col-sm-2">
-                        <input type="text" class="form-control text-left" id="inputAge" placeholder="Age">
-                    </div>
-                    <div class="placeholder col-sm-1"></div>
-                    <label for="inputGender" class="text-right col-sm-2 col-form-label">Gender</label>
-                    <div class="col-sm-2">
-                        <select id="inputGender" class="form-control">
-                            <option value="Select">Select</option>
-                            <option value="Female">Female</option>
-                            <option value="Male">Male</option>
-                        </select>
-                    </div>
-                </div>
-            </fieldset>
+                </header>
+                <!-- Content -->
+                <!-- Form -->
+                <form id="inputForm">
+                    <!-- Personal Info -->
+                    <fieldset class="form-group text-center custom-new-input-section">
+                        <h4>Personal Info</h4>
+                        <hr />
+                        <!-- Row for: First Name, Last Name -->
+                        <div class="row custom-new-row-group">
+                            <div class="placeholder col-sm-1"></div>
+                            <label for="inputFirstName" class="col-form-label col-sm-2 text-right">First Name</label>
+                            <div class="col-sm-3">
+                                <input type="text" class="form-control text-left" id="inputFirstName" placeholder="First Name">
+                            </div>
+                            <label for="inputLastName" class="col-form-label col-sm-2 text-right">Last Name</label>
+                            <div class="col-sm-3">
+                                <input type="text" class="form-control text-left" id="inputLastName" placeholder="Last Name">
+                            </div>
+                            <div class="placeholder col-sm-1"></div>
+                        </div>
+                        <!-- Row for: Age, Gender -->
+                        <div class="row custom-new-row-group">
+                            <div class="placeholder col-sm-1"></div>
+                            <label for="inputAge" class="text-right col-sm-2 col-form-label">Age</label>
+                            <div class="col-sm-2">
+                                <input type="text" class="form-control text-left" id="inputAge" placeholder="Age">
+                            </div>
+                            <div class="placeholder col-sm-1"></div>
+                            <label for="inputGender" class="text-right col-sm-2 col-form-label">Gender</label>
+                            <div class="col-sm-2">
+                                <select id="inputGender" class="form-control">
+                                    <option value="Select">Select</option>
+                                    <option value="Female">Female</option>
+                                    <option value="Male">Male</option>
+                                </select>
+                            </div>
+                        </div>
+                    </fieldset>
 
-            <!-- Address Info -->
-            <fieldset class="form-group text-center custom-new-input-section">
-                <h4>Address Info</h4>
-                <hr />
-                <!-- Row for: Address Line 1, Address Line 2 -->
-                <div class="row custom-new-row-group">
-                    <div class="placeholder col-sm-1"></div>
-                    <label for="inputAddr1" class="col-sm-2 col-form-label text-right">Address Line 1</label>
-                    <div class="col-sm-3">
-                        <input type="text" class="form-control text-left" id="inputAddr1" placeholder="House number and street">
-                    </div>
-                    <label for="inputAddr2" class="col-sm-2 col-form-label text-right">Address Line 2</label>
-                    <div class="col-sm-3">
-                        <input type="text" class="form-control text-left" id="inputAddr2" placeholder="Apartment or Suite">
-                    </div>
-                </div>
-                <!-- Row for: Zip Code and City -->
-                <div class="row custom-new-row-group">
-                    <div class="placeholder col-sm-1"></div>
-                    <label for="inputZipcode" class="col-sm-2 col-form-label text-right">Zip Code</label>
-                    <div class="col-sm-2">
-                        <input type="text" class="form-control text-left" id="inputZipcode" placeholder="Zip Code">
-                    </div>
-                    <div class="placeholder col-sm-1"></div>
-                    <label for="inputCity" class="text-right col-sm-2 col-form-label">City</label>
-                    <div class="col-sm-3">
-                        <input type="text" class="form-control text-left" id="inputCity" placeholder="City">
-                    </div>
-                </div>
-                <!-- Row for: State and Country -->
-                <div class="row custom-new-row-group">
-                    <div class="placeholder col-sm-1"></div>
-                    <label for="inputState" class="text-right col-sm-2 col-form-label">State</label>
-                    <div class="col-sm-2">
-                        <input type="text" class="form-control text-left" id="inputState" placeholder="State">
-                    </div>
-                    <div class="placeholder col-sm-1"></div>
-                    <label for="inputCountry" class="text-right col-sm-2 col-form-label">Country</label>
-                    <div class="col-sm-3">
-                        <!-- .value returns acronym, .innerText returns full country name-->
-                        <div id="inputCountry" class="text-left bfh-selectbox bfh-countries" data-country="US" data-flags="true"></div>
-                    </div>
-                </div>
-                <!-- Select for Primary Address -->
-                <div class="row custom-new-input-section">
-                    <div class="placeholder col-sm-3"></div>
-                    <label for="isPrimAddr" class="text-left col-sm-3 col-form-label">Is this your primary address?</label>
-                    <div class="form-check col-sm-2">
-                        <select id="isPrimAddr" class="form-control" onchange="togglePrimAddr()">
-                            <option value="Select">Select</option>
-                            <option value="Yes">Yes</option>
-                            <option value="No">No</option>
-                        </select>
-                    </div>
-                    <div class="placeholder col-sm-4"></div>
-                </div>
-            </fieldset>
+                    <!-- Address Info -->
+                    <fieldset class="form-group text-center custom-new-input-section">
+                        <h4>Address Info</h4>
+                        <hr />
+                        <!-- Row for: Address Line 1, Address Line 2 -->
+                        <div class="row custom-new-row-group">
+                            <div class="placeholder col-sm-1"></div>
+                            <label for="inputAddr1" class="col-sm-2 col-form-label text-right">Address Line 1</label>
+                            <div class="col-sm-3">
+                                <input type="text" class="form-control text-left" id="inputAddr1" placeholder="House number and street">
+                            </div>
+                            <label for="inputAddr2" class="col-sm-2 col-form-label text-right">Address Line 2</label>
+                            <div class="col-sm-3">
+                                <input type="text" class="form-control text-left" id="inputAddr2" placeholder="Apartment or Suite">
+                            </div>
+                        </div>
+                        <!-- Row for: Zip Code and City -->
+                        <div class="row custom-new-row-group">
+                            <div class="placeholder col-sm-1"></div>
+                            <label for="inputZipcode" class="col-sm-2 col-form-label text-right">Zip Code</label>
+                            <div class="col-sm-2">
+                                <input type="text" class="form-control text-left" id="inputZipcode" placeholder="Zip Code">
+                            </div>
+                            <div class="placeholder col-sm-1"></div>
+                            <label for="inputCity" class="text-right col-sm-2 col-form-label">City</label>
+                            <div class="col-sm-3">
+                                <input type="text" class="form-control text-left" id="inputCity" placeholder="City">
+                            </div>
+                        </div>
+                        <!-- Row for: State and Country -->
+                        <div class="row custom-new-row-group">
+                            <div class="placeholder col-sm-1"></div>
+                            <label for="inputState" class="text-right col-sm-2 col-form-label">State</label>
+                            <div class="col-sm-2">
+                                <input type="text" class="form-control text-left" id="inputState" placeholder="State">
+                            </div>
+                            <div class="placeholder col-sm-1"></div>
+                            <label for="inputCountry" class="text-right col-sm-2 col-form-label">Country</label>
+                            <div class="col-sm-3">
+                                <!-- .value returns acronym, .innerText returns full country name-->
+                                <div id="inputCountry" class="text-left bfh-selectbox bfh-countries" data-country="US" data-flags="true"></div>
+                            </div>
+                        </div>
+                        <!-- Select for Primary Address -->
+                        <div class="row custom-new-input-section">
+                            <div class="placeholder col-sm-3"></div>
+                            <label for="isPrimAddr" class="text-left col-sm-3 col-form-label">Is this your primary address?</label>
+                            <div class="form-check col-sm-2">
+                                <select id="isPrimAddr" class="form-control" onchange="togglePrimAddr()">
+                                    <option value="Select">Select</option>
+                                    <option value="Yes">Yes</option>
+                                    <option value="No">No</option>
+                                </select>
+                            </div>
+                            <div class="placeholder col-sm-4"></div>
+                        </div>
+                    </fieldset>
 
-            <!-- Primary Address Info -->
-            <fieldset id="primaryAddr" class="form-group text-center custom-new-input-section">
-                <h4>Primary Address Info</h4>
-                <hr />
-                <!-- Row for: Address Line 1, Address Line 2 -->
-                <div class="row custom-new-row-group">
-                    <div class="placeholder col-sm-1"></div>
-                    <label for="inputPrimAddr1" class="col-sm-2 col-form-label text-right">Address Line 1</label>
-                    <div class="col-sm-3">
-                        <input type="text" class="form-control text-left" id="inputPrimAddr1" placeholder="House number and street">
-                    </div>
-                    <label for="inputPrimAddr2" class="col-sm-2 col-form-label text-right">Address Line 2</label>
-                    <div class="col-sm-3">
-                        <input type="text" class="form-control text-left" id="inputPrimAddr2" placeholder="Apartment or Suite">
-                    </div>
-                </div>
-                <!-- Row for: Zip Code and City -->
-                <div class="row custom-new-row-group">
-                    <div class="placeholder col-sm-1"></div>
-                    <label for="inputPrimZipcode" class="col-sm-2 col-form-label text-right">Zip Code</label>
-                    <div class="col-sm-2">
-                        <input type="text" class="form-control text-left" id="inputPrimZipcode" placeholder="Zip Code">
-                    </div>
-                    <div class="placeholder col-sm-1"></div>
-                    <label for="inputPrimCity" class="text-right col-sm-2 col-form-label">City</label>
-                    <div class="col-sm-3">
-                        <input type="text" class="form-control text-left" id="inputPrimCity" placeholder="City">
-                    </div>
-                </div>
-                <!-- Row for: State and Country -->
-                <div class="row custom-new-row-group">
-                    <div class="placeholder col-sm-1"></div>
-                    <label for="inputPrimState" class="text-right col-sm-2 col-form-label">State</label>
-                    <div class="col-sm-2">
-                        <input type="text" class="form-control text-left" id="inputPrimState" placeholder="State">
-                    </div>
-                    <div class="placeholder col-sm-1"></div>
-                    <label for="inputPrimCountry" class="text-right col-sm-2 col-form-label">Country</label>
-                    <div class="col-sm-3">
-                        <div id="inputPrimCountry" class="bfh-selectbox bfh-countries" data-country="US" data-flags="true"></div>
-                    </div>
-                </div>
-            </fieldset>
-            <!-- Contact Info -->
-            <fieldset class="form-group text-center custom-new-input-section">
-                <h4>Contact Info</h4> <hr />
-                <!-- Row for: Phone, Extension, and Email -->
-                <div class="row custom-new-row-group">
-                    <div class="placeholder col-sm-2"></div>
-                    <label for="inputPhone" class="col-sm-3 col-form-label text-right">Phone Number</label>
-                    <div class="col-sm-3">
-                        <!--
-                        <input type="text" class="input-medium bfh-phone form-control" data-format="(ddd) ddd-dddd" id="inputPhoneNum">
-                        <script>$("#inputPhoneNum").intlTelInput();</script>
-                        -->
-                        <input id="inputPhoneNum" type="text" class="form-control text-left" />
-                    </div>
-                    <div class="col-sm-2">
-                        <input type="text" class="form-control text-left" id="inputPhoneExt" placeholder="Ext.">
-                    </div>
-                </div>
-                <div class="row custom-new-row-group">
-                    <div class="placeholder col-sm-2"></div>
-                    <label for="inputEmail" class="col-sm-3 col-form-label text-right">E-Mail</label>
-                    <div class="col-sm-3">
-                        <input type="email" class="form-control text-left" id="inputEmail" placeholder="E-Mail Address">
-                    </div>
-                </div>
-            </fieldset>
+                    <!-- Primary Address Info -->
+                    <fieldset id="primaryAddr" class="form-group text-center custom-new-input-section">
+                        <h4>Primary Address Info</h4>
+                        <hr />
+                        <!-- Row for: Address Line 1, Address Line 2 -->
+                        <div class="row custom-new-row-group">
+                            <div class="placeholder col-sm-1"></div>
+                            <label for="inputPrimAddr1" class="col-sm-2 col-form-label text-right">Address Line 1</label>
+                            <div class="col-sm-3">
+                                <input type="text" class="form-control text-left" id="inputPrimAddr1" placeholder="House number and street">
+                            </div>
+                            <label for="inputPrimAddr2" class="col-sm-2 col-form-label text-right">Address Line 2</label>
+                            <div class="col-sm-3">
+                                <input type="text" class="form-control text-left" id="inputPrimAddr2" placeholder="Apartment or Suite">
+                            </div>
+                        </div>
+                        <!-- Row for: Zip Code and City -->
+                        <div class="row custom-new-row-group">
+                            <div class="placeholder col-sm-1"></div>
+                            <label for="inputPrimZipcode" class="col-sm-2 col-form-label text-right">Zip Code</label>
+                            <div class="col-sm-2">
+                                <input type="text" class="form-control text-left" id="inputPrimZipcode" placeholder="Zip Code">
+                            </div>
+                            <div class="placeholder col-sm-1"></div>
+                            <label for="inputPrimCity" class="text-right col-sm-2 col-form-label">City</label>
+                            <div class="col-sm-3">
+                                <input type="text" class="form-control text-left" id="inputPrimCity" placeholder="City">
+                            </div>
+                        </div>
+                        <!-- Row for: State and Country -->
+                        <div class="row custom-new-row-group">
+                            <div class="placeholder col-sm-1"></div>
+                            <label for="inputPrimState" class="text-right col-sm-2 col-form-label">State</label>
+                            <div class="col-sm-2">
+                                <input type="text" class="form-control text-left" id="inputPrimState" placeholder="State">
+                            </div>
+                            <div class="placeholder col-sm-1"></div>
+                            <label for="inputPrimCountry" class="text-right col-sm-2 col-form-label">Country</label>
+                            <div class="col-sm-3">
+                                <div id="inputPrimCountry" class="bfh-selectbox bfh-countries" data-country="US" data-flags="true"></div>
+                            </div>
+                        </div>
+                    </fieldset>
+                    <!-- Contact Info -->
+                    <fieldset class="form-group text-center custom-new-input-section">
+                        <h4>Contact Info</h4> <hr />
+                        <!-- Row for: Phone, Extension, and Email -->
+                        <div class="row custom-new-row-group">
+                            <div class="placeholder col-sm-2"></div>
+                            <label for="inputPhone" class="col-sm-3 col-form-label text-right">Phone Number</label>
+                            <div class="col-sm-3">
+                                <input id="inputPhoneNum" type="text" class="form-control text-left" />
+                            </div>
+                            <div class="col-sm-2">
+                                <input type="text" class="form-control text-left" id="inputPhoneExt" placeholder="Ext.">
+                            </div>
+                        </div>
+                        <div class="row custom-new-row-group">
+                            <div class="placeholder col-sm-2"></div>
+                            <label for="inputEmail" class="col-sm-3 col-form-label text-right">E-Mail</label>
+                            <div class="col-sm-3">
+                                <input type="email" class="form-control text-left" id="inputEmail" placeholder="E-Mail Address">
+                            </div>
+                        </div>
+                    </fieldset>
 
-            <!-- Submit Button -->
-            <div class="form-group row text-center custom-new-input-section">
-                <hr />
-                <div class="placeholder col-sm-5"></div>
-                <div class="col-sm-2">
-                    <button type="submit" class="btn btn-primary">Register</button>
-                </div>
-                <div class="placeholder col-sm-5"></div>
+                    <!-- Submit Button -->
+                    <div class="form-group row text-center custom-new-input-section">
+                        <hr />
+                        <div class="placeholder col-sm-5"></div>
+                        <div class="col-sm-2">
+                            <button type="submit"
+                                    class="btn btn-primary"
+                                    onmouseover="$(this).addClass('navButtonHover');"
+                                    onmouseout="$(this).removeClass('navButtonHover');">
+                                    Register</button>
+                        </div>
+                        <div class="placeholder col-sm-5"></div>
+                    </div>
+                </form>
+                <!-- Footer -->
+                <footer id="footer" class="row text-center">
+                    <br />
+                    <hr />
+                    <h5>&copy; Michael Corso - 2018</h5>
+                    <hr />
+                </footer>
             </div>
-        </form>
-        <!-- Footer -->
-        <footer id="footer" class="flex-sm-row text-center">
-            <hr />
-            <h5>&copy; Michael Corso - 2018</h5>
-            <hr />
-        </footer>
+            <div class="rightCol col-sm-1"> </div>
+        </div>
     </div>
 </body>
 </html>
